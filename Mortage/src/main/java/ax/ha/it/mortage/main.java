@@ -5,16 +5,22 @@
  */
 package ax.ha.it.mortage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 /**
  *
  * @author André
  */
 public class main {
+    
     public static void main (String[] args) {
-        customer first = new customer("juha", 1000, 5, 2);
-        System.out.println(first.getLoan());
-        System.out.println(first.getInterest());
-        System.out.println(first.getYears());
-        System.out.println(first.getMonthlyPayment());
+        CustomerManager test = new CustomerManager();
+        File file = new File("src/main/resources/prospects.txt");
+        test.getDataFromFile(file);
+        test.iterate();
     }
 }
