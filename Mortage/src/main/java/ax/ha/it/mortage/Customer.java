@@ -49,15 +49,20 @@ public class Customer {
     
     public void setMonthlyPayment(){
         double result = 0;
-        double percentage = interest/100;
-        double tempNumber = (1+percentage);
-        double base = tempNumber;
+        //Delar med 12 för att få ränta per månad
+        double percentage = interest/100/12;
         
+        double tempNumber = (1+percentage);
+
+        double base = tempNumber;
+
         for (int i=0; i<years*12; i++) {
             if(i>0) {
                 tempNumber = tempNumber*base;
+                
             }
         }
+
         result = loanAmount*((percentage*tempNumber)/(tempNumber-1));
         this.monthlyPayment = result;
     }
