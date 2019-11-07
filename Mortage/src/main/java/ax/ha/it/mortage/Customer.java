@@ -16,7 +16,7 @@ public class Customer {
     private final double interest;
     private final int years;
     
-    private final double monthlyPayment;
+    private double monthlyPayment;
    
     public Customer(String customerName, double loanAmount, double interest, int years) {
         this.customerName = customerName;
@@ -24,7 +24,7 @@ public class Customer {
         this.interest = interest;
         this.years = years;
         
-        this.monthlyPayment = (interest*(loanAmount/100)*years+loanAmount)/(years*12);//(years*12);
+        this.monthlyPayment = 0;
     }
     
     public String getName() {
@@ -43,7 +43,22 @@ public class Customer {
         return years;
     }
     
-    public double getMonthlyPayment(){
+    public double getMonthlyPayment(){ 
         return monthlyPayment;
+    }
+    
+    public void setMonthlyPayment(){
+        double result = 0;
+        double percentage = interest/100;
+        double tempNumber = (1+percentage);
+        double base = tempNumber;
+        
+        for (int i=0; i<years*12; i++) {
+            if(i>0) {
+                tempNumber = tempNumber*base;
+            }
+        }
+        result = loanAmount*((percentage*tempNumber)/(tempNumber-1));
+        this.monthlyPayment = result;
     }
 }

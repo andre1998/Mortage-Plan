@@ -7,6 +7,7 @@ package ax.ha.it.mortage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,10 +24,13 @@ public class CustomerManager {
     }
     
     public void iterate() {
+        DecimalFormat format = new DecimalFormat();
+        format.setMaximumFractionDigits(2);
+        
         for (int i=0; i<customerList.size(); i++) {
             System.out.println("Prospect "+(i+1)+": "+customerList.get(i).getName()
                                 +" wants to borrow "+customerList.get(i).getLoan()+"€ for a period of "
-                                +customerList.get(i).getYear()+" years and pay "+customerList.get(i).getMonthlyPayment()+"€ for each month");
+                                +customerList.get(i).getYear()+" years and pay "+format.format(customerList.get(i).getMonthlyPayment())+"€ for each month");
             //Prospect 1:  wants to borrow € for a period of  years and pay E € each month
         } 
     }
@@ -77,6 +81,7 @@ public class CustomerManager {
                 years = Integer.parseInt(finder.next());
                 
                 Customer temp = new Customer(name, loan, interest, years);
+                temp.setMonthlyPayment();
                 append(temp);
             }
             else if (counter >= 3) {
@@ -89,6 +94,8 @@ public class CustomerManager {
                 years = Integer.parseInt(finder.next());
                 
                 Customer temp = new Customer(name, loan, interest, years);
+                //Sätter värdet för monthlyPayment
+                temp.setMonthlyPayment();
                 append(temp);
             }
             //Sätter counter till noll inför nästa rad som läses in;

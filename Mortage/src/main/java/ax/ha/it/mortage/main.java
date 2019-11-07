@@ -22,5 +22,11 @@ public class main {
         File file = new File("src/main/resources/prospects.txt");
         test.getDataFromFile(file);
         test.iterate();
+        
+        
+        /*Customer test = new Customer("John", 100000, 0.5, 15);
+        test.setMonthlyPayment();
+        System.out.println(test.getMonthlyPayment());*/
+        //System.out.println(result);
     }
 }
