@@ -31,7 +31,6 @@ public class CustomerManager {
             System.out.println("Prospect "+(i+1)+": "+customerList.get(i).getName()
                                 +" wants to borrow "+customerList.get(i).getLoan()+"€ for a period of "
                                 +customerList.get(i).getYear()+" years and pay "+format.format(customerList.get(i).getMonthlyPayment())+"€ for each month");
-            //Prospect 1:  wants to borrow € for a period of  years and pay E € each month
         } 
     }
     
@@ -85,7 +84,6 @@ public class CustomerManager {
                 append(temp);
             }
             else if (counter >= 3) {
-                //finder.useDelimiter(",");
                 nameExtra = finder.next()+" "+finder.next();
                 
                 name=nameExtra.replace("\"","");
