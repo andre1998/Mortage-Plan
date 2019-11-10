@@ -19,11 +19,13 @@ public class Customer {
     private double monthlyPayment;
    
     public Customer(String customerName, double loanAmount, double interest, int years) {
-        this.customerName = customerName;
+        customerName=customerName.replaceAll("[\",.]","");
+        customerName=customerName.replaceAll("[0-9]","");
+        
+        this.customerName = customerName.trim().replaceAll(" +", " ");
         this.loanAmount = loanAmount;
         this.interest = interest;
         this.years = years;
-        
         this.monthlyPayment = 0;
     }
     

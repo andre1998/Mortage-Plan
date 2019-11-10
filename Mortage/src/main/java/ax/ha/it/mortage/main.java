@@ -15,9 +15,13 @@ import java.io.File;
 public class main {
     
     public static void main (String[] args) {
+        /*Customer test = new Customer("John, Test Case", 1000, 5, 2);
+        System.out.println(test.getName());*/
         CustomerManager test = new CustomerManager();
         File file = new File("src/main/resources/prospects.txt");
         test.getDataFromFile(file);
-        test.iterate();
+        System.out.println(test.get(1).getName());
+        /*test.iterate();
+    */
     }
 }

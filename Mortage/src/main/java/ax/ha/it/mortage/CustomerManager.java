@@ -20,7 +20,7 @@ public class CustomerManager {
     private List<Customer> customerList;
     
     public CustomerManager() {
-        customerList=new ArrayList<>();
+        this.customerList=new ArrayList<>();
     }
     
     public void iterate() {
@@ -35,12 +35,12 @@ public class CustomerManager {
         } 
     }
     
-    public void append(Customer customer) {
-        customerList.add(customer);
+    public Customer get(int index) {
+        return customerList.get(index);
     }
     
-    public void remove(int index) {
-        customerList.remove(index);
+    public void append(Customer customer) {
+        customerList.add(customer);
     }
     
     //Primär funktion som lägger in all data

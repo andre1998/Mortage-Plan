@@ -5,9 +5,6 @@
  */
 package ax.ha.it.mortage;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class CustomerManagerTest {
     
-    private List<Customer>list;
+    private CustomerManager test;
     private Customer t1;
     private Customer t2;
     private Customer t3;
@@ -40,33 +37,32 @@ public class CustomerManagerTest {
     
     @BeforeEach
     public void setUp() {
-        list = new ArrayList<>();
-        t1 = new Customer("John", 1000.50, 4.5, 8);
-        t2 = new Customer("Johan", 4000, 5.7, 10);
-        t3 = new Customer("Erik", 10000, 3, 20);
-        t4 = new Customer("Leonard", 3000, 7, 4);
-        
-        list.add(t1);
-        list.add(t2);
-        list.add(t3);
-        list.add(t4);
-        
-    }
+        test = new CustomerManager();
+        t1 = new Customer("John,,,,, Test,,, Case", 1000.50, 4.5, 8);
+        t2 = new Customer("Johan  2354Test 012345Test", 4000, 5.7, 10);
+        t3 = new Customer("22222        ,, ,,, ,,               Erik", 10000, 3, 20);
+        t4 = new Customer("Long   ,, Long Test     ,, ,,, ,,               Erik", 10000, 3, 20);
+        test.append(t1);
+    }   
     
     @AfterEach
     public void tearDown() {
     }
-
+    
     /**
      * Test of iterate method, of class CustomerManager.
      */
-    @Test
+    /*@Test
     public void testIterate() {
-        System.out.println("iterate");
-        CustomerManager instance = new CustomerManager();
-        instance.iterate();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }*/
+
+    /**
+     * Test of get method, of class CustomerManager.
+     */
+    @Test
+    public void testGet() {
+        System.out.println("get");
+        assertEquals(t1, test.get(0));
     }
 
     /**
@@ -75,24 +71,9 @@ public class CustomerManagerTest {
     @Test
     public void testAppend() {
         System.out.println("append");
-        Customer customer = null;
-        CustomerManager instance = new CustomerManager();
-        instance.append(customer);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of remove method, of class CustomerManager.
-     */
-    @Test
-    public void testRemove() {
-        System.out.println("remove");
-        int index = 0;
-        CustomerManager instance = new CustomerManager();
-        instance.remove(index);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        test.append(t2);
+        assertEquals(t2, test.get(1));
+        
     }
 
     /**
@@ -100,12 +81,6 @@ public class CustomerManagerTest {
      */
     @Test
     public void testGetDataFromFile() {
-        System.out.println("getDataFromFile");
-        File file = null;
-        CustomerManager instance = new CustomerManager();
-        instance.getDataFromFile(file);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

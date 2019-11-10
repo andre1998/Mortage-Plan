@@ -23,6 +23,7 @@ public class CustomerTest {
     private Customer t1;
     private Customer t2;
     private Customer t3;
+    private Customer t4;
     
     public CustomerTest() {
     }
@@ -37,9 +38,10 @@ public class CustomerTest {
     
     @BeforeEach
     public void setUp() {
-        t1 = new Customer("John", 1000.50, 4.5, 8);
-        t2 = new Customer("Johan", 4000, 5.7, 10);
-        t3 = new Customer("Erik", 10000, 3, 20);
+        t1 = new Customer("John,,,,, Test,,, Case", 1000.50, 4.5, 8);
+        t2 = new Customer("Johan  2354Test 012345Test", 4000, 5.7, 10);
+        t3 = new Customer("22222        ,, ,,, ,,               Erik", 10000, 3, 20);
+        t4 = new Customer("Long   ,, Long Test     ,, ,,, ,,               Erik", 10000, 3, 20);
     }   
     
     @AfterEach
@@ -52,9 +54,11 @@ public class CustomerTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        assertEquals("John", t1.getName());
-        assertEquals("Johan", t2.getName());
+        assertEquals("John Test Case", t1.getName());
+        assertEquals("Johan Test Test", t2.getName());
+        System.out.println(t3.getName());
         assertEquals("Erik", t3.getName());
+        assertEquals("Long Long Test Erik", t4.getName());
         /**String expResult = "";
         String result = instance.getName();
         assertEquals(expResult, result);

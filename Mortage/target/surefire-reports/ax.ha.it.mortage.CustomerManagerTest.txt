@@ -1,20 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ax.ha.it.mortage.CustomerManagerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 2, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in ax.ha.it.mortage.CustomerManagerTest
-testAppend  Time elapsed: 0.015 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: The test case is a prototype.
-	at ax.ha.it.mortage.CustomerManagerTest.testAppend(CustomerManagerTest.java:82)
-
-testGetDataFromFile  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException
-	at ax.ha.it.mortage.CustomerManagerTest.testGetDataFromFile(CustomerManagerTest.java:106)
-
-testRemove  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at ax.ha.it.mortage.CustomerManagerTest.testRemove(CustomerManagerTest.java:93)
-
-testIterate  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: The test case is a prototype.
-	at ax.ha.it.mortage.CustomerManagerTest.testIterate(CustomerManagerTest.java:69)
-
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in ax.ha.it.mortage.CustomerManagerTest
